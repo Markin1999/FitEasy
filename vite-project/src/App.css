@@ -1,22 +1,22 @@
 /* FitEasy - Colori personalizzati */
 
 /* 🟦 Blu Protoneon → Titoli, pulsanti primari, logo */
-.bg-bottoni {
-  background-color: #007bff;
+.color-titolo {
+  color: #007bff;
 }
 
 /* 🟧 Arancione Sprint → CTA principali, hover, bottoni “Prenota ora” */
-.bg-hover {
+.bg-bottone {
   background-color: #ff6b00;
 }
 
 /* ✅ Verde Bicipite → Accent (icone, bordi, indicatori) */
-.bg-accento {
-  background-color: #00ff66;
+.border-icona {
+  border-color: #00ff66;
 }
 
 /* 🟨 Giallo Sprint → Badge, etichette “Nuovo!”, alert positivi */
-.bg-evidenza {
+.bg-etichette {
   background-color: #ffdd00;
 }
 
@@ -26,6 +26,6 @@
 }
 
 /* ⬛ Nero Carbonio → Testi principali, navbar, footer */
-.text-testo {
+.color-testo {
   color: #1a1a1a;
 }
