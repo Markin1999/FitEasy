@@ -1,7 +1,7 @@
 export function Header() {
   return (
-    <header>
-      <div>
+    <header className="flex w-full">
+      <div className="w-1/2 p-12 bg-sfondo">
         <h1>
           L'app per personal trainer n. 1 per coinvolgere al meglio i tuoi
           clienti.
@@ -15,7 +15,9 @@ export function Header() {
           dei tuoi clienti.
         </p>
       </div>
-      <img src="" alt="" />
+      <div className="w-1/2">
+        <img src="/img/hero-home.jpg" alt="Hero Home" />
+      </div>
     </header>
   );
 }

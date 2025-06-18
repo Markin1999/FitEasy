@@ -1,42 +1,31 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* FitEasy - Colori personalizzati */
+
+/* 🟦 Blu Protoneon → Titoli, pulsanti primari, logo */
+.bg-bottoni {
+  background-color: #007bff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 🟧 Arancione Sprint → CTA principali, hover, bottoni “Prenota ora” */
+.bg-hover {
+  background-color: #ff6b00;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ✅ Verde Bicipite → Accent (icone, bordi, indicatori) */
+.bg-accento {
+  background-color: #00ff66;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* 🟨 Giallo Sprint → Badge, etichette “Nuovo!”, alert positivi */
+.bg-evidenza {
+  background-color: #ffdd00;
 }
 
-.card {
-  padding: 2em;
+/* ⬜ Grigio Acciaio → Sfondo sezioni alternate, cards contenuto */
+.bg-sfondo {
+  background-color: #f0f2f5;
 }
 
-.read-the-docs {
-  color: #888;
+/* ⬛ Nero Carbonio → Testi principali, navbar, footer */
+.text-testo {
+  color: #1a1a1a;
 }
