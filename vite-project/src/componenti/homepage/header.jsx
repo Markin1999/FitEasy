@@ -15,7 +15,7 @@ export function Header() {
           dei tuoi clienti.
         </p>
       </div>
-      <video src=""></video>
+      <img src="" alt="" />
     </header>
   );
 }
