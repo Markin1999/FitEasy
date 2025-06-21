@@ -2,11 +2,10 @@ export function Header() {
   return (
     <header className="flex w-full">
       <div className="w-1/2 p-12 bg-sfondo">
-        <h1 className="text-titolo">
-          L'app per personal trainer n. 1 per coinvolgere al meglio i tuoi
-          clienti.
+        <h1 className=" font-poppins text-titolo font-bold ">
+          L'app n. 1 per coinvolgere al meglio i tuoi clienti.
         </h1>
-        <p className="text-testo">
+        <p className="text-testo font-normal">
           Porta il tuo lavoro da coach al livello successivo. Con FitEasy puoi
           gestire clienti, creare schede di allenamento e alimentazione
           personalizzate, monitorare i progressi e automatizzare tutto da
