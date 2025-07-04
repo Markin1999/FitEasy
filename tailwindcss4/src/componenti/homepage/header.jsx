@@ -3,7 +3,10 @@ export function Header() {
     <header className="flex w-full">
       <div className="w-1/2 p-12 bg-sfondo flex justify-center items-center">
         <div className="w-[80%] h-24 flex flex-col items-center justify-center gap-10">
-          <h1 className=" font-poppins text-testo font-bold ">
+          <h1
+            className=" font-poppins text-testo font-bold drop-shadow-light-blue
+"
+          >
             L'app n. 1 per coinvolgere al meglio i tuoi clienti.
           </h1>
           <p className="text-testo font-normal">
@@ -19,8 +22,11 @@ export function Header() {
               placeholder="Inserisci la tua e-mail"
               className="w-[75%] h-16 border border-testo hover:border-testo rounded-l-md px-4 py-2"
             />
-            <button className="w-[25%] font-extrabold bg-testo drop-shadow-[0_0_8px_rgba(255,255,255,1)] text-titolo rounded-r-md px-4 py-2">
-              ISCRIVITI
+            <button
+              className="w-[25%] font-bold bg-testo text-titolo rounded-r-md inline-block px-4 py-2 drop-shadow-strong-blue
+"
+            >
+              ISCRIVITI ORA
             </button>
           </div>
         </div>

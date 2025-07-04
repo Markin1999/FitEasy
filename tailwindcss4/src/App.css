@@ -24,3 +24,15 @@
   /* ⬛ Nero Carbonio → Testi principali, navbar, footer */
   --color-testo: #1a1a1a;
 }
+
+@layer utilities {
+  /* Drop shadow leggero azzurro */
+  .drop-shadow-light-blue {
+    filter: drop-shadow(0 0 6px #38bdf8);
+  }
+
+  /* Drop shadow più intenso azzurro */
+  .drop-shadow-strong-blue {
+    filter: drop-shadow(0 0 12px #38bdf8);
+  }
+}
