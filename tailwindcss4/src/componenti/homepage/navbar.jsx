@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 export function Navbar() {
+  const [clickBurger, setClickBurger] = useState(false);
+
+  const handleClickBurger = () => {
+    setClickBurger(!clickBurger); //In questo modo si avvia un toggle on/off
+  };
+
   return (
     <nav className="bg-testo py-3 px-12 gap-2">
       <div className="flex justify-between">
@@ -16,7 +24,10 @@ export function Navbar() {
             ISCRIVITI ORA
           </button>
         </div>
-        <div className="md:hidden flex justify-center items-center hover:cursor-pointer ">
+        <div
+          className="md:hidden flex justify-center items-center hover:cursor-pointer "
+          onClick={handleClickBurger}
+        >
           <svg
             className="w-6 h-6 text-titolo"
             fill="none"
@@ -33,6 +44,7 @@ export function Navbar() {
           </svg>
         </div>
       </div>
+      {clickBurger && <div className="md:hidden"></div>}
     </nav>
   );
 }
