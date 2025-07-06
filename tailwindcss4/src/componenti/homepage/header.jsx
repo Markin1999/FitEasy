@@ -1,6 +1,6 @@
 export function Header() {
   return (
-    <header className="flex items-stretch w-full flex-col-reverse md:flex-row">
+    <header className="flex items-stretch w-full flex-col-reverse pt-[83px] sm:flex-row sm:pt-[103px]">
       <div className=" flex p-6 bg-sfondo justify-center items-center sm:w-1/2 sm:p-8 lg:w-1/2 lg:p-12">
         <div className="flex flex-col items-center justify-center gap-5 sm:gap-7 lg:gap-10 lg:w-[80%]">
           <h1

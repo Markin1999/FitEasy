@@ -8,7 +8,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-testo gap-2 px-5 py-3 sm:px-12  ">
+    <nav className="bg-testo gap-2 px-5 py-3 fixed w-full sm:px-12  ">
       <div className="flex justify-between">
         <div className="h-max ">
           <img
@@ -18,14 +18,14 @@ export function Navbar() {
           />
         </div>
 
-        <div className="hidden md:flex items-center gap-4 hover:cursor-pointer">
+        <div className="hidden  items-center gap-4 hover:cursor-pointer md:flex">
           <a className=" text-titolo">ACCEDI</a>
           <button className="p-5 font-bold bg-bottone text-white rounded-md inline-block">
             ISCRIVITI ORA
           </button>
         </div>
         <div
-          className="md:hidden flex justify-center items-center hover:cursor-pointer "
+          className=" flex justify-center items-center hover:cursor-pointer sm:hidden"
           onClick={handleClickBurger}
         >
           <svg
