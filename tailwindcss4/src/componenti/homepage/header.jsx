@@ -1,11 +1,11 @@
 export function Header() {
   return (
-    <header className="flex w-full">
-      <div className="w-1/2 p-12 bg-sfondo flex justify-center items-center">
-        <div className="w-[80%] h-24 flex flex-col items-center justify-center gap-10">
+    <header className="flex items-stretch w-full flex-col md:flex-row">
+      <div className=" flex p-6 bg-sfondo justify-center items-center sm:w-1/2 sm:p-8 lg:w-1/2 lg:p-12">
+        <div className="flex flex-col items-center justify-center gap-5 sm:gap-7 lg:gap-10 lg:w-[80%]">
           <h1
-            className=" font-poppins text-testo font-bold drop-shadow-strong-blue
-"
+            className="font-poppins text-testo font-bold drop-shadow-strong-blue
+                        "
           >
             L'app n. 1 per coinvolgere al meglio i tuoi clienti.
           </h1>
@@ -20,16 +20,20 @@ export function Header() {
           <div className="flex w-full h-16">
             <input
               placeholder="Inserisci la tua e-mail"
-              className="w-[75%] h-16 border border-testo hover:border-testo rounded-l-md px-4 py-2"
+              className="w-[65%]  border border-testo hover:border-testo rounded-l-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             />
-            <button className="w-[25%] font-bold bg-testo text-titolo rounded-r-md inline-block px-4 py-2 drop-shadow-light-blue">
+            <button className="w-[35%] font-bold bg-testo text-titolo rounded-r-md inline-block px-4 py-2 drop-shadow-light-blue text-[12px] sm:text-[14px] lg:text-[16px]">
               ISCRIVITI ORA
             </button>
           </div>
         </div>
       </div>
-      <div className="w-1/2">
-        <img src="/img/hero-home.jpg" alt="Immagine prova" />
+      <div className="sm:w-1/2 lg:w-1/2 flex ">
+        <img
+          src="/img/hero-home.jpg"
+          alt="Immagine prova"
+          className="w-full flex-grow"
+        />
       </div>
     </header>
   );
