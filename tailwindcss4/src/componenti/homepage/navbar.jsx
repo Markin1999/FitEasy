@@ -8,7 +8,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-testo py-3 px-12 gap-2">
+    <nav className="bg-testo gap-2 px-5 py-3 sm:px-12  ">
       <div className="flex justify-between">
         <div className="h-max ">
           <img
@@ -44,7 +44,17 @@ export function Navbar() {
           </svg>
         </div>
       </div>
-      {clickBurger && <div className="md:hidden"></div>}
+      {clickBurger && (
+        <div className="flex flex-col sm:hidden py-4">
+          <hr className="pb-4 text-sfondo" />
+          <div className="flex flex-col items-end gap-4 hover:cursor-pointer">
+            <a className=" text-titolo pr-4">ACCEDI</a>
+            <button className="p-3 m-0 font-bold bg-bottone text-white rounded-md inline-block">
+              ISCRIVITI ORA
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
