@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Navbar() {
   const [clickBurger, setClickBurger] = useState(false);
+  const navTo = useNavigate();
 
   const handleClickBurger = () => {
     setClickBurger(!clickBurger); //In questo modo si avvia un toggle on/off
@@ -20,7 +22,12 @@ export function Navbar() {
 
         <div className="hidden  items-center gap-4 hover:cursor-pointer md:flex">
           <a className=" text-titolo">ACCEDI</a>
-          <button className="p-5 font-bold bg-bottone text-white rounded-md inline-block">
+          <button
+            onClick={() => {
+              navTo("/registrazione");
+            }}
+            className="p-5 font-bold bg-bottone text-white rounded-md inline-block"
+          >
             ISCRIVITI ORA
           </button>
         </div>
@@ -49,7 +56,12 @@ export function Navbar() {
           <hr className="pb-4 text-sfondo" />
           <div className="flex flex-col items-end gap-4 hover:cursor-pointer">
             <a className=" text-titolo pr-4">ACCEDI</a>
-            <button className="p-3 m-0 font-bold bg-bottone text-white rounded-md inline-block">
+            <button
+              onClick={() => {
+                navTo("/registrazione");
+              }}
+              className="p-3 m-0 font-bold bg-bottone text-white rounded-md inline-block"
+            >
               ISCRIVITI ORA
             </button>
           </div>

@@ -1,4 +1,40 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export function Header() {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+
+  const navTo = useNavigate();
+
+  //Per validare l'email:
+
+  const validateEmail = (em) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    return regex.test(em);
+  };
+  //_-----
+
+  const handleChange = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleClick = () => {
+    if (validateEmail(email)) {
+      setError("");
+
+      //Importo in registrazione, come con una promps l'email
+      navTo("/registrazione", {
+        state: {
+          email,
+        },
+      });
+
+      console.log(email);
+    } else {
+      setError("Inserisci una email valida.");
+    }
+  };
+
   return (
     <header className="flex items-stretch w-full flex-col-reverse pt-[83px] sm:flex-row sm:pt-[103px]">
       <div className=" flex p-6 bg-sfondo justify-center items-center sm:w-1/2 sm:p-8 lg:w-1/2 lg:p-12">
@@ -19,13 +55,19 @@ export function Header() {
           </p>
           <div className="flex w-full h-16">
             <input
+              type="email"
               placeholder="Inserisci la tua e-mail"
+              onChange={handleChange}
               className="w-[65%]  border border-testo hover:border-testo rounded-l-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             />
-            <button className="w-[35%] font-bold bg-testo text-titolo rounded-r-md inline-block px-4 py-2 drop-shadow-light-blue text-[12px] sm:text-[14px] lg:text-[16px]">
+            <button
+              onClick={handleClick}
+              className="w-[35%] font-bold bg-testo text-titolo rounded-r-md inline-block px-4 py-2 drop-shadow-light-blue text-[12px] sm:text-[14px] lg:text-[16px]"
+            >
               ISCRIVITI ORA
             </button>
           </div>
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
       </div>
       <div className="sm:w-1/2 lg:w-1/2 flex ">

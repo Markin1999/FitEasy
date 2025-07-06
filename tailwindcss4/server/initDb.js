@@ -9,14 +9,14 @@ const setup = async () => {
   try {
     await db.none(
       `
-        CREATE TABLE IF NOT EXIST users (
+        CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
         nome TEXT NOT NULL,
         cognome TEXT NOT NULL,
         businessName TEXT NOT NULL,
         businessEmail TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
-        token TEXT 
+        token TEXT
         )
         `
     );
@@ -26,4 +26,3 @@ const setup = async () => {
   }
 };
 
-setup();
