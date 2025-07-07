@@ -1,10 +1,10 @@
 export default function Registrazione() {
   return (
-    <div className="flex ">
+    <div className="flex flex-col h-screen justify-center items-center">
       <div>
-        <h1>INIZIA LA TUA PROVA GRATUITA DI 30 GIORNI</h1>
-        <p>Incrementa i tuoi clienti con Fit-east.</p>
-        <p>Nessuna carta di credito richiesta</p>
+        <h2>INIZIA LA TUA PROVA GRATUITA DI 30 GIORNI</h2>
+        <h3>Incrementa i tuoi clienti con Fit-easy.</h3>
+        <h3>Nessuna carta di credito richiesta</h3>
       </div>
       <form>
         <div>
@@ -29,7 +29,7 @@ export default function Registrazione() {
           type="password"
           className="w-[65%]  border border-testo hover:border-testo rounded-l-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
         ></input>
-        <button></button>
+        <button>Crea Account</button>
       </form>
 
       <p>
