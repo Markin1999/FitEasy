@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Registrazione() {
+  const [utente, setUtente] = useState({
+    nome: "",
+    cognome: "",
+    businessName: "",
+    businessEmail: "",
+    businessEmail: "",
+  });
   const navTo = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setUtente((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div className=" h-screen w-full flex flex-col  justify-center items-center p-3 lg:h-full">
@@ -9,7 +23,7 @@ export default function Registrazione() {
         onClick={() => {
           navTo("/");
         }}
-        className="w-full flex justify-end mb-8"
+        className="w-full flex justify-end mb-8 cursor-pointer"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +57,9 @@ export default function Registrazione() {
             </label>
             <input
               type="text"
+              name="nome"
+              value={utente.nome}
+              onChange={handleChange}
               className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             ></input>
           </div>
@@ -53,6 +70,9 @@ export default function Registrazione() {
             </label>
             <input
               type="text"
+              name="cognome"
+              value={utente.cognome}
+              onChange={handleChange}
               className="w-full   border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             ></input>
           </div>
@@ -64,6 +84,9 @@ export default function Registrazione() {
           </label>
           <input
             type="text"
+            name="businessName"
+            value={utente.businessName}
+            onChange={handleChange}
             className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
           ></input>
         </div>
@@ -74,6 +97,9 @@ export default function Registrazione() {
           </label>
           <input
             type="email"
+            name="businessEmail"
+            value={utente.businessEmail}
+            onChange={handleChange}
             className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
           ></input>
         </div>
@@ -84,6 +110,9 @@ export default function Registrazione() {
           </label>
           <input
             type="password"
+            name="password"
+            value={utente.password}
+            onChange={handleChange}
             className="w-full   border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
           ></input>
         </div>
