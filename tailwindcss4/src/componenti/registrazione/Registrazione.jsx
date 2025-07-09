@@ -1,7 +1,32 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Registrazione() {
+  const navTo = useNavigate();
+
   return (
-    <div className="flex flex-col h-screen justify-center items-center px-3 my-3">
-      <div className="text-center p-3 sm:mb-12 ">
+    <div className=" h-screen w-full flex flex-col  justify-center items-center p-3 lg:h-full">
+      <div
+        onClick={() => {
+          navTo("/");
+        }}
+        className="w-full flex justify-end mb-8"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-[20px] sm:h-[30px] lg:h-[30px]"
+          viewBox="6 6 12 12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </div>
+
+      <div className="text-center px-3 pb-3 sm:mb-12 ">
         <h2 className="font-bold text-testo mb-2 sm:mb-6">
           INIZIA LA PROVA GRATUITA <br /> DI 30 GIORNI
         </h2>
