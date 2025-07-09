@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Registrazione() {
   const [utente, setUtente] = useState({
@@ -12,7 +12,16 @@ export default function Registrazione() {
 
   const [message, setMessage] = useState("");
   const navTo = useNavigate();
+  const location = useLocation();
 
+  //Serve per importare dall'homepage l'email inserita dall'utente
+  useEffect(() => {
+    const email = location.state?.email || "";
+    setUtente((prev) => ({ ...prev, businessEmail: email }));
+  }, []);
+
+  //---
+  //Serve per impostare un timeout ai messaggi di errori.
   useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
@@ -32,11 +41,7 @@ export default function Registrazione() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (utente.password) {
-      if (
-        utente.password.length < 8 ||
-        !/\d/.test(utente.password) ||
-        !/[!@#$%^&*()]/.test(utente.password)
-      ) {
+      if (utente.password.length < 8) {
         setMessage("La password deve contenere almeno 8 caratteri");
       } else {
         setMessage("");

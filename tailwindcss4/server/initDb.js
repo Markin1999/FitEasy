@@ -1,9 +1,9 @@
 import pgPromise from "pg-promise";
 import dotenv from "dotenv";
 
-export const db = pgPromise()(
-  "postgresql://postgres:Lggs290@localhost:5432/FitEasy"
-);
+const pgp = pgPromise();
+
+export const db = pgp("postgresql://postgres:Lggs290@localhost:5432/FitEasy");
 
 const setup = async () => {
   try {
@@ -25,4 +25,3 @@ const setup = async () => {
     console.error("Errore durante la creazione delle tabelle:", error.message);
   }
 };
-
