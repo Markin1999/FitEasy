@@ -9,30 +9,17 @@ export function Header() {
 
   //Per validare l'email:
 
-  const validateEmail = (em) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    return regex.test(em);
-  };
-  //_-----
-
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
+
   const handleClick = () => {
-    if (validateEmail(email)) {
-      setError("");
-
-      //Importo in registrazione, come con una promps l'email
-      navTo("/registrazione", {
-        state: {
-          email,
-        },
-      });
-
-      console.log(email);
-    } else {
-      setError("Inserisci una email valida.");
-    }
+    //Importo in registrazione, come con una promps l'email
+    navTo("/registrazione", {
+      state: {
+        email,
+      },
+    });
   };
 
   return (

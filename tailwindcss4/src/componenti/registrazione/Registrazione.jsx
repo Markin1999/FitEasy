@@ -7,14 +7,41 @@ export default function Registrazione() {
     cognome: "",
     businessName: "",
     businessEmail: "",
-    businessEmail: "",
+    password: "",
   });
+
+  const [message, setMessage] = useState("");
   const navTo = useNavigate();
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     setUtente((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (utente.password) {
+      if (
+        utente.password.length < 8 ||
+        !/\d/.test(utente.password) ||
+        !/[!@#$%^&*()]/.test(utente.password)
+      ) {
+        setMessage("La password deve contenere almeno 8 caratteri");
+      } else {
+        setMessage("");
+      }
+    }
   };
 
   return (
@@ -49,11 +76,14 @@ export default function Registrazione() {
         </h3>
         <h3>Nessuna carta di credito richiesta</h3>
       </div>
-      <form className="flex flex-col w-full items-center gap-3 sm:w-[75%] lg:w-[40%]">
+      <form
+        className="flex flex-col w-full items-center gap-3 sm:w-[75%] lg:w-[40%]"
+        onSubmit={handleSubmit}
+      >
         <div className="flex w-full gap-5 sm:flex-col">
           <div className="flex flex-col w-full">
             <label htmlFor="nome" className="font-semibold text-testo">
-              NOME
+              NOME<span className="w-[0.0625rem] h-[0.0625rem]">*</span>
             </label>
             <input
               type="text"
@@ -61,12 +91,13 @@ export default function Registrazione() {
               value={utente.nome}
               onChange={handleChange}
               className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+              required
             ></input>
           </div>
 
           <div className="flex flex-col w-full">
             <label htmlFor="cognome" className="font-semibold text-testo">
-              COGNOME
+              COGNOME<span className="w-[0.0625rem] h-[0.0625rem]">*</span>
             </label>
             <input
               type="text"
@@ -74,13 +105,14 @@ export default function Registrazione() {
               value={utente.cognome}
               onChange={handleChange}
               className="w-full   border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+              required
             ></input>
           </div>
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="nomeAttivita" className="font-semibold text-testo">
-            NOME ATTIVITA
+            NOME ATTIVITA<span className="w-[0.0625rem] h-[0.0625rem]">*</span>
           </label>
           <input
             type="text"
@@ -88,25 +120,29 @@ export default function Registrazione() {
             value={utente.businessName}
             onChange={handleChange}
             className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            required
           ></input>
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="email" className="font-semibold text-testo">
             EMAIL AZIENDALE
+            <span className="w-[0.0625rem] h-[0.0625rem]">*</span>
           </label>
           <input
             type="email"
             name="businessEmail"
             value={utente.businessEmail}
             onChange={handleChange}
-            className="w-full  border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            className="w-full border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            required
           ></input>
         </div>
 
         <div className="flex flex-col w-full">
           <label htmlFor="password" className="font-semibold text-testo">
-            PASSWORD
+            PASSWORD<span className="w-[0.0625rem] h-[0.0625rem]">*</span> (8
+            CARATTERI)
           </label>
           <input
             type="password"
@@ -114,10 +150,16 @@ export default function Registrazione() {
             value={utente.password}
             onChange={handleChange}
             className="w-full   border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            required
           ></input>
         </div>
 
-        <button className="w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 ">
+        {message && <p>{message}</p>}
+
+        <button
+          className="w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 "
+          type="submit"
+        >
           Crea Account
         </button>
       </form>
