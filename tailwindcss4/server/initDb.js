@@ -25,3 +25,5 @@ const setup = async () => {
     console.error("Errore durante la creazione delle tabelle:", error.message);
   }
 };
+
+export default setup;

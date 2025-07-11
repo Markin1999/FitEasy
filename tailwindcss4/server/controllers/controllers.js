@@ -8,7 +8,7 @@ export const registrazione = async (req, res) => {
   console.log("📥 Dati ricevuti:", req.body);
   try {
     const existEmail = await db.oneOrNone(
-      `SELECT * FROM utenti WHERE businessemail = $1`,
+      `SELECT * FROM users WHERE businessemail = $1`,
       [businessEmail]
     );
 
@@ -22,7 +22,7 @@ export const registrazione = async (req, res) => {
     const hashed = await bcrypt.hash(password, saltRounds);
 
     const user = await db.one(
-      `INSERT INTO utenti (nome, cognome, businessname, businessemail, password) VALUES ($1, $2, $3, $4, $5) returning id`,
+      `INSERT INTO users (nome, cognome, businessname, businessemail, password) VALUES ($1, $2, $3, $4, $5) returning id`,
       [nome, cognome, businessName, businessEmail, hashed]
     );
 
@@ -35,3 +35,5 @@ export const registrazione = async (req, res) => {
     res.status(500).json({ message: "Errore durante la registrazione" });
   }
 };
+
+db.oneOrNone("SELECT 1").then(() => console.log("Connessione OK")).catch(console.error);

@@ -14,6 +14,6 @@ app.use(cors());
 
 app.post("/registrazione", registrazione);
 
-app.listen(PORT, () => {
-  console.log(`server in ascolto su http://localhost:${PORT}`);
+app.listen(5000, '127.0.0.1', () => {
+  console.log('Server avviato su http://127.0.0.1:3000');
 });
