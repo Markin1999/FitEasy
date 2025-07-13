@@ -10,11 +10,14 @@ export default function Registrazione() {
     password: "",
   });
 
-  const [message, setMessage] = useState("");
-  const navTo = useNavigate();
-  const location = useLocation();
+   
 
-  //Serve per importare dall'homepage l'email inserita dall'utente
+  const [message, setMessage] = useState("");
+  const location = useLocation();
+  const navTo = useNavigate();
+ 
+
+
   useEffect(() => {
     const email = location.state?.email || "";
     setUtente((prev) => ({ ...prev, businessEmail: email }));

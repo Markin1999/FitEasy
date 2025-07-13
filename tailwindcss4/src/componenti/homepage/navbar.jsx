@@ -21,7 +21,9 @@ export function Navbar() {
         </div>
 
         <div className="hidden  items-center gap-4 hover:cursor-pointer md:flex">
-          <a className=" text-titolo">ACCEDI</a>
+          <a className=" text-titolo" onClick={() => {
+              navTo("/accedi");
+            }}>ACCEDI</a>
           <button
             onClick={() => {
               navTo("/registrazione");
