@@ -36,15 +36,10 @@ export default function Accedi() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center mx-12 p-0">
       <form
-        className="w-3xs rounded-md p-3 flex flex-col justify-center items-center gap-3 border-icona bg-gradient-to-br from-[#d2f6c5] via-[#b0eacd] to-[#cce3ff] shadow-lg sm:w-[75%] lg:w-[40%]"
+        className="w-5xs rounded-md p-3 flex flex-col justify-center items-center gap-3 border-icona bg-gradient-to-br from-[#d2f6c5] via-[#b0eacd] to-[#cce3ff] shadow-lg sm:w-[75%] lg:w-[40%]"
         onSubmit={handleSubmit}
       >
-        <div
-          onClick={() => {
-            navTo("/");
-          }}
-          className="flex justify-end mb-8 cursor-pointer "
-        >
+        <div className="w-full flex justify-end mb-3 cursor-pointer ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-[20px] sm:h-[30px] lg:h-[30px]"
@@ -54,17 +49,22 @@ export default function Accedi() {
             stroke-width="1.2"
             stroke-linecap="round"
             stroke-linejoin="round"
+            onClick={() => {
+              navTo("/");
+            }}
           >
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </div>
-        <div className="text-center px-3 pb-3 sm:mb-12 ">
-          <h2 className="font-bold text-testo mb-2 sm:mb-6">ACCEDI</h2>
+        <div className="text-center px-3 pb-3 sm:mb-3 ">
+          <h1 className="font-bold text-testo mb-2 sm:mb-6">
+            Accedi a FitEasy{" "}
+          </h1>
         </div>
         <div className="flex flex-col w-full ">
           <label htmlFor="email" className="font-semibold text-testo">
-            EMAIL AZIENDALE
+            EMAIL
             <span className="w-[0.0625rem] h-[0.0625rem]">*</span>
           </label>
           <input
@@ -94,7 +94,7 @@ export default function Accedi() {
         {message && <p>{message}</p>}
 
         <button
-          className="font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 "
+          className="text-2xl   w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 sm:text-3xl lg:py-3 "
           type="submit"
         >
           Accedi

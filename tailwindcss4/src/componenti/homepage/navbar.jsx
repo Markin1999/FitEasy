@@ -21,9 +21,14 @@ export function Navbar() {
         </div>
 
         <div className="hidden  items-center gap-4 hover:cursor-pointer md:flex">
-          <a className=" text-titolo" onClick={() => {
+          <a
+            className=" text-titolo"
+            onClick={() => {
               navTo("/accedi");
-            }}>ACCEDI</a>
+            }}
+          >
+            ACCEDI
+          </a>
           <button
             onClick={() => {
               navTo("/registrazione");
@@ -57,7 +62,14 @@ export function Navbar() {
         <div className="flex flex-col sm:hidden py-4">
           <hr className="pb-4 text-sfondo" />
           <div className="flex flex-col items-end gap-4 hover:cursor-pointer">
-            <a className=" text-titolo pr-4">ACCEDI</a>
+            <a
+              className=" text-titolo pr-4"
+              onClick={() => {
+                navTo("/accedi");
+              }}
+            >
+              ACCEDI
+            </a>
             <button
               onClick={() => {
                 navTo("/registrazione");
