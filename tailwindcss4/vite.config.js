@@ -6,7 +6,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [tailwindcss(), react()],
   server: {
-    host: '127.0.0.1', // 👈 Forza l’uso di IPv4 anziché localhost
-    port: 5173         // puoi cambiare porta se necessario
-  }
+    host: "127.0.0.1", // 👈 Forza l’uso di IPv4 anziché localhost
+    port: 5173, // puoi cambiare porta se necessario
+    watch: {
+      ignored: [
+        "**/server/**",
+        "**/.env",
+        "**/README.md",
+        "**/eslint.config.js",
+      ],
+    },
+  },
 });

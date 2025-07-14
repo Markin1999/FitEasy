@@ -10,13 +10,9 @@ export default function Registrazione() {
     password: "",
   });
 
-   
-
   const [message, setMessage] = useState("");
   const location = useLocation();
   const navTo = useNavigate();
- 
-
 
   useEffect(() => {
     const email = location.state?.email || "";
@@ -54,12 +50,7 @@ export default function Registrazione() {
 
   return (
     <div className=" h-screen w-full flex flex-col  justify-center items-center p-3 lg:h-full">
-      <div
-        onClick={() => {
-          navTo("/");
-        }}
-        className="w-full flex justify-end mb-8 cursor-pointer"
-      >
+      <div className="w-full flex justify-end mb-8 cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-[20px] sm:h-[30px] lg:h-[30px]"
@@ -69,6 +60,9 @@ export default function Registrazione() {
           stroke-width="1.2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          onClick={() => {
+            navTo("/");
+          }}
         >
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />

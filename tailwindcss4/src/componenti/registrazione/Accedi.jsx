@@ -35,7 +35,10 @@ export default function Accedi() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center mx-12 p-0">
-      <div className="">
+      <form
+        className="w-3xs rounded-md p-3 flex flex-col justify-center items-center gap-3 border-icona bg-gradient-to-br from-[#d2f6c5] via-[#b0eacd] to-[#cce3ff] shadow-lg sm:w-[75%] lg:w-[40%]"
+        onSubmit={handleSubmit}
+      >
         <div
           onClick={() => {
             navTo("/");
@@ -56,53 +59,47 @@ export default function Accedi() {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </div>
-
         <div className="text-center px-3 pb-3 sm:mb-12 ">
           <h2 className="font-bold text-testo mb-2 sm:mb-6">ACCEDI</h2>
         </div>
-        <form
-          className="flex flex-col items-center gap-3 sm:w-[75%] lg:w-[40%]"
-          onSubmit={handleSubmit}
+        <div className="flex flex-col w-full ">
+          <label htmlFor="email" className="font-semibold text-testo">
+            EMAIL AZIENDALE
+            <span className="w-[0.0625rem] h-[0.0625rem]">*</span>
+          </label>
+          <input
+            type="email"
+            name="businessEmail"
+            value={utente.businessEmail}
+            onChange={handleChange}
+            className=" border-b border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            required
+          ></input>
+        </div>
+
+        <div className="w-full flex flex-col ">
+          <label htmlFor="password" className="font-semibold text-testo">
+            PASSWORD<span className="w-[0.0625rem] h-[0.0625rem]">*</span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={utente.password}
+            onChange={handleChange}
+            className="  border-b border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
+            required
+          ></input>
+        </div>
+
+        {message && <p>{message}</p>}
+
+        <button
+          className="font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 "
+          type="submit"
         >
-          <div className="flex flex-col ">
-            <label htmlFor="email" className="font-semibold text-testo">
-              EMAIL AZIENDALE
-              <span className="w-[0.0625rem] h-[0.0625rem]">*</span>
-            </label>
-            <input
-              type="email"
-              name="businessEmail"
-              value={utente.businessEmail}
-              onChange={handleChange}
-              className="border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
-              required
-            ></input>
-          </div>
-
-          <div className="flex flex-col ">
-            <label htmlFor="password" className="font-semibold text-testo">
-              PASSWORD<span className="w-[0.0625rem] h-[0.0625rem]">*</span>
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={utente.password}
-              onChange={handleChange}
-              className=" border border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
-              required
-            ></input>
-          </div>
-
-          {message && <p>{message}</p>}
-
-          <button
-            className="font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 "
-            type="submit"
-          >
-            Accedi
-          </button>
-        </form>
-      </div>
+          Accedi
+        </button>
+      </form>
     </div>
   );
 }
