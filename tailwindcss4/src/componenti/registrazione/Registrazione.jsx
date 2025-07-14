@@ -159,10 +159,10 @@ export default function Registrazione() {
         {message && <p>{message}</p>}
 
         <button
-          className="w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 lg:py-6 "
+          className="text-2xl   w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 sm:text-3xl lg:py-3 "
           type="submit"
         >
-          Crea Account
+          REGISTRATI
         </button>
       </form>
 
