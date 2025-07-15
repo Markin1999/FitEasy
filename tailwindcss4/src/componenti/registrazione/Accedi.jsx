@@ -36,7 +36,7 @@ export default function Accedi() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center mx-12 p-0">
       <form
-        className="w-5xs rounded-md p-3 flex flex-col justify-center items-center gap-3 bg-white shadow-lg sm:w-[75%] lg:w-[40%]"
+        className="min-w-[100px] rounded-md p-3 flex flex-col justify-center items-center gap-3 bg-white shadow-lg sm:w-[75%] lg:w-[40%]"
         onSubmit={handleSubmit}
       >
         <div className="w-full flex justify-end mb-3 cursor-pointer ">
@@ -94,11 +94,25 @@ export default function Accedi() {
         {message && <p>{message}</p>}
 
         <button
+          onClick={() => {
+            navTo("/homepagePt");
+          }}
           className="text-2xl   w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 sm:text-3xl lg:py-3 "
           type="submit"
         >
           Accedi
         </button>
+        <p>
+          Non hai un account?{" "}
+          <span
+            className="text-titolo cursor-pointer"
+            onClick={() => {
+              navTo("/registrazione");
+            }}
+          >
+            Registrati
+          </span>
+        </p>
       </form>
     </div>
   );
