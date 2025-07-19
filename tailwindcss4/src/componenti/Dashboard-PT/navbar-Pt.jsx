@@ -11,26 +11,23 @@ export function NavbarPt() {
 
   return (
     <nav className="bg-testo gap-2 px-5 py-3 fixed w-full sm:px-12  ">
-      <div className="flex justify-between">
-        <div className="h-max "></div>
-
-        <div className="hidden  items-center gap-4 hover:cursor-pointer md:flex">
-          <a
-            className=" text-titolo"
-            onClick={() => {
-              navTo("/accedi");
-            }}
-          >
-            ACCEDI
-          </a>
-          <button
-            onClick={() => {
-              navTo("/registrazione");
-            }}
-            className="p-5 font-bold bg-bottone text-white rounded-md inline-block"
-          >
-            ISCRIVITI ORA
-          </button>
+      <div className="flex">
+        <div className="hidden w-full justify-center items-center gap-4 hover:cursor-pointer md:grid md:grid-cols-3">
+          <div className="h-full ">
+            <img
+              src="../../src/assets/logo/logo.svg"
+              className="h-[60px] md:h-[80px]"
+              alt=""
+            />
+          </div>
+          <ul className="flex justify-center text-white gap-8  ">
+            <li>Dashboard</li>
+            <li>Clienti</li>
+            <li>Calendario</li>
+            <li>Notifiche</li>
+            <li>Profilo</li>
+          </ul>
+          <div></div>
         </div>
         <div
           className=" flex justify-center items-center hover:cursor-pointer sm:hidden"
