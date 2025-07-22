@@ -46,6 +46,19 @@ export default function Registrazione() {
         setMessage("");
       }
     }
+    //Salvo l'utente nel localstorage
+    if (
+      !utente.nome ||
+      !utente.cognome ||
+      !utente.businessName ||
+      !utente.businessEmail ||
+      !utente.password
+    ) {
+      localStorage.setItem("utenteRegistrato", JSON.stringify(utente));
+      navTo("/accedi");
+    } else {
+      setMessage("Compila tutti i campo obbligatori");
+    }
   };
 
   return (
