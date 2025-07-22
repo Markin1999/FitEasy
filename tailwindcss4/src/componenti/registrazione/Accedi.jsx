@@ -34,11 +34,18 @@ export default function Accedi() {
 
     //Salvo l'utenteSalvato nel localstorage
     if (utenteSalvato.businessEmail && utenteSalvato.password) {
-      const utenteTrovato = JSON.parse(
-        localStorage.getItem("utenteRegistrato")
+      const utentiTrovati = JSON.parse(
+        localStorage.getItem("utentiRegistrati")
+      );
+      const utenteTrovato = utentiTrovati.find(
+        (utente) =>
+          utente.businessEmail.trim() === utenteSalvato.businessEmail.trim()
       );
 
-      console.log("Utente trovato:", utenteTrovato);
+      if (!utenteTrovato) {
+        setMessage("Utente non trovato");
+        return;
+      }
 
       if (
         utenteTrovato &&

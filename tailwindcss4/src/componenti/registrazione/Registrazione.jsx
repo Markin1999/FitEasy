@@ -54,7 +54,16 @@ export default function Registrazione() {
       utente.businessEmail ||
       utente.password
     ) {
-      localStorage.setItem("utenteRegistrato", JSON.stringify(utente));
+      const utentiLocalStorage =
+        JSON.parse(localStorage.getItem("utentiRegistrati")) || [];
+
+      utentiLocalStorage.push(utente);
+
+      localStorage.setItem(
+        "utentiRegistrati",
+        JSON.stringify(utentiLocalStorage)
+      );
+
       navTo("/accedi");
     } else {
       setMessage("Compila tutti i campo obbligatori");

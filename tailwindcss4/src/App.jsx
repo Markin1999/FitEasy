@@ -4,8 +4,13 @@ import { Homepage } from "./componenti/homepage/Homepage";
 import Registrazione from "./componenti/registrazione/Registrazione";
 import Accedi from "./componenti/registrazione/Accedi";
 import HomepagePt from "./componenti/Dashboard-PT/Homepage-Pt";
+import utenti from "./data/utenti";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    localStorage.setItem("utentiRegistrati", JSON.stringify(utenti));
+  }, []);
   return (
     <>
       <div>
