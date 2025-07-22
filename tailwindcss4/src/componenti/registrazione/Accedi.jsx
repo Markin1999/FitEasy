@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Accedi() {
-  const [utente, setUtente] = useState({
+  const [utenteSalvato, setutenteSalvato] = useState({
     businessEmail: "",
     password: "",
   });
@@ -26,11 +26,32 @@ export default function Accedi() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUtente((prev) => ({ ...prev, [name]: value }));
+    setutenteSalvato((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //Salvo l'utenteSalvato nel localstorage
+    if (utenteSalvato.businessEmail && utenteSalvato.password) {
+      const utenteTrovato = JSON.parse(
+        localStorage.getItem("utenteRegistrato")
+      );
+
+      console.log("Utente trovato:", utenteTrovato);
+
+      if (
+        utenteTrovato &&
+        utenteTrovato.businessEmail === utenteSalvato.businessEmail &&
+        utenteTrovato.password === utenteSalvato.password
+      ) {
+        navTo("/homepagePt"); // Accesso corretto
+      } else {
+        setMessage("Email o password non corretti"); // Credenziali sbagliate
+      }
+    } else {
+      setMessage("Compila tutti i campi"); // Campi vuoti
+    }
   };
 
   return (
@@ -70,7 +91,7 @@ export default function Accedi() {
           <input
             type="email"
             name="businessEmail"
-            value={utente.businessEmail}
+            value={utenteSalvato.businessEmail}
             onChange={handleChange}
             className=" border-b border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             required
@@ -84,7 +105,7 @@ export default function Accedi() {
           <input
             type="password"
             name="password"
-            value={utente.password}
+            value={utenteSalvato.password}
             onChange={handleChange}
             className="  border-b border-testo hover:border-testo rounded-md px-4 py-2 text-[12px] sm:text-[14px] lg:text-[16px] lg:h-16 "
             required
@@ -94,9 +115,6 @@ export default function Accedi() {
         {message && <p>{message}</p>}
 
         <button
-          onClick={() => {
-            navTo("/homepagePt");
-          }}
           className="text-2xl   w-full font-bold my-3 border border-bottone bg-bottone text-white rounded-md px-4 py-2 sm:my-6 sm:py-4 sm:text-3xl lg:py-3 "
           type="submit"
         >

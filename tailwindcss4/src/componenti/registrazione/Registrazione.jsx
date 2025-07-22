@@ -48,11 +48,11 @@ export default function Registrazione() {
     }
     //Salvo l'utente nel localstorage
     if (
-      !utente.nome ||
-      !utente.cognome ||
-      !utente.businessName ||
-      !utente.businessEmail ||
-      !utente.password
+      utente.nome ||
+      utente.cognome ||
+      utente.businessName ||
+      utente.businessEmail ||
+      utente.password
     ) {
       localStorage.setItem("utenteRegistrato", JSON.stringify(utente));
       navTo("/accedi");
