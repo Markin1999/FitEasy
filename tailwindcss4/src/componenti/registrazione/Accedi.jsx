@@ -32,6 +32,8 @@ export default function Accedi() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //
+
     //Salvo l'utenteSalvato nel localstorage
     if (utenteSalvato.businessEmail && utenteSalvato.password) {
       const utentiTrovati = JSON.parse(
@@ -59,6 +61,7 @@ export default function Accedi() {
     } else {
       setMessage("Compila tutti i campi"); // Campi vuoti
     }
+    //
   };
 
   return (
