@@ -10,7 +10,7 @@ export function NavbarPt() {
   };
 
   return (
-    <nav className="bg-testo gap-2 px-5 py-2  fixed w-full sm:px-12 md:py-0 lg:py-3 ">
+    <nav className="bg-white gap-2 px-5 py-2  fixed w-full sm:px-12 md:py-0 lg:py-3 ">
       <div className="flex">
         <div className="w-full justify-center items-center gap-4 md:grid md:grid-cols-3  ">
           <div className="h-full ">
@@ -20,7 +20,7 @@ export function NavbarPt() {
               alt=""
             />
           </div>
-          <ul className="hidden justify-center text-white md:gap-5 md:flex lg:gap-8  ">
+          <ul className="hidden justify-center text-testo md:gap-5 md:flex lg:gap-8  ">
             <li>DASHBOARD</li>
             <li>CLIENTI</li>
             <li>CALENDARIO</li>
