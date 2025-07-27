@@ -20,7 +20,7 @@ export function NavbarPt() {
               alt=""
             />
           </div>
-          <ul className="hidden justify-center text-testo md:gap-5 md:flex lg:gap-8  ">
+          <ul className="hidden justify-center text-testo font-semibold md:gap-5 md:flex lg:gap-8   ">
             <li>DASHBOARD</li>
             <li>CLIENTI</li>
             <li>CALENDARIO</li>
