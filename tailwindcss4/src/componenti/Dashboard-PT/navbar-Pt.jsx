@@ -15,9 +15,9 @@ export function NavbarPt() {
         <div className="w-full justify-center items-center gap-4 md:grid md:grid-cols-3  ">
           <div className="h-full ">
             <img
-              src="../../src/assets/logo/logo.svg"
-              className="h-[60px] w-[60px] md:h-[80px] md:w-[60px] lg:w-[90px] "
-              alt=""
+              src="../../src/assets/logo/logo.png"
+              alt="Fit-Easy logo"
+              className="block h-[60px] w-[80px] m-1 p-0 md:h-[90px] md:w-auto md:m-3 lg:h-[90px] lg:w-auto"
             />
           </div>
           <ul className="hidden justify-center text-testo font-semibold md:gap-5 md:flex lg:gap-8   ">

@@ -5,7 +5,6 @@ export default function HomepagePt() {
   return (
     <>
       <NavbarPt />
-      <HeaderPt />
     </>
   );
 }
