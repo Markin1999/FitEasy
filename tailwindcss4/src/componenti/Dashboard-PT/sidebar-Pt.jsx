@@ -12,12 +12,12 @@ export function SidebarPt() {
 
         <nav className="mt-6 flex-1">
           <ul className="flex flex-col gap-4 text-testo font-semibold">
-            <li className="li-pt-navbar">DASHBOARD</li>
-            <li className="li-pt-navbar">CLIENTI</li>
-            <li className="li-pt-navbar">CALENDARIO</li>
-            <li className="li-pt-navbar">NOTIFICHE</li>
-            <li className="li-pt-navbar">PERSONALIZZATE</li>
-            <li className="li-pt-navbar">PROFILO</li>
+            <li className="li-pt">DASHBOARD</li>
+            <li className="li-pt">CLIENTI</li>
+            <li className="li-pt">CALENDARIO</li>
+            <li className="li-pt">NOTIFICHE</li>
+            <li className="li-pt">PERSONALIZZATE</li>
+            <li className="li-pt">PROFILO</li>
           </ul>
         </nav>
 

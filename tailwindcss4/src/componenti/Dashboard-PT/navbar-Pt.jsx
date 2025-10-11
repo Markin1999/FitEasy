@@ -4,6 +4,13 @@ import { useNavigate } from "react-router-dom";
 export function NavbarPt() {
   const [clickBurger, setClickBurger] = useState(false);
   const navTo = useNavigate();
+  const navLinks = [
+    { id: "dashboard", label: "Dashboard" },
+    { id: "clienti", label: "Clienti" },
+    { id: "calendario", label: "Calendario" },
+    { id: "notifiche", label: "Notifiche" },
+    { id: "profilo", label: "Profilo" },
+  ];
 
   const handleClickBurger = () => {
     setClickBurger(!clickBurger);
@@ -45,12 +52,17 @@ export function NavbarPt() {
         <div className="flex flex-col">
           <hr className="pb-4 text-testo" />
           <div className="flex flex-col items-end ">
-            <ul className=" text-testo text-right">
-              <li className="li-pt">DASHBOARD</li>
-              <li className="li-pt">CLIENTI</li>
-              <li className="li-pt">CALENDARIO</li>
-              <li className="py-0.5">NOTIFICHE</li>
-              <li className="py-0.5">PROFILO</li>
+            <ul className="text-testo text-left space-y-2 w-fit">
+              {navLinks.map((link) => (
+                <li
+                  key={link.id}
+                  className="li-pt-navbar"
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="li-pt-navbar__label">{link.label}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
