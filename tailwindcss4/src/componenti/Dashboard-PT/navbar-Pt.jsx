@@ -6,7 +6,7 @@ export function NavbarPt() {
   const navTo = useNavigate();
 
   const handleClickBurger = () => {
-    setClickBurger(!clickBurger); //In questo modo si avvia un toggle on/off
+    setClickBurger(!clickBurger);
   };
 
   return (
@@ -46,9 +46,9 @@ export function NavbarPt() {
           <hr className="pb-4 text-testo" />
           <div className="flex flex-col items-end ">
             <ul className=" text-testo text-right">
-              <li className="py-0.5">DASHBOARD</li>
-              <li className="py-0.5">CLIENTI</li>
-              <li className="py-0.5">CALENDARIO</li>
+              <li className="li-pt">DASHBOARD</li>
+              <li className="li-pt">CLIENTI</li>
+              <li className="li-pt">CALENDARIO</li>
               <li className="py-0.5">NOTIFICHE</li>
               <li className="py-0.5">PROFILO</li>
             </ul>
