@@ -8,7 +8,7 @@ export function HeaderPt() {
   const navTo = useNavigate();
 
   return (
-    <header className="flex w-full pt-[79px]  sm:pt-[81px]">
+    <header className="flex w-full pt-[79px] sm:pt-0">
       <div className="w-full flex flex-col p-6 bg-gradient-to-r from-indigo-500 to-blue-600 gap-5 sm:gap-7 sm:p-8 lg:gap-10 lg:p-12 ">
         <div className="w-full flex justify-between">
           <div>

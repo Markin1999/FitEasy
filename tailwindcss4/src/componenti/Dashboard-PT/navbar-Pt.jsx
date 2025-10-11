@@ -20,14 +20,6 @@ export function NavbarPt() {
               className="block h-[60px] w-[80px] m-1 p-0 md:h-[90px] md:w-auto md:m-3 lg:h-[90px] lg:w-auto"
             />
           </div>
-          <ul className="hidden justify-center text-testo font-semibold md:gap-5 md:flex lg:gap-8   ">
-            <li>DASHBOARD</li>
-            <li>CLIENTI</li>
-            <li>CALENDARIO</li>
-            <li>NOTIFICHE</li>
-            <li>PROFILO</li>
-          </ul>
-          <div></div>
         </div>
         <div
           className=" flex justify-center items-center hover:cursor-pointer sm:hidden"
@@ -51,9 +43,9 @@ export function NavbarPt() {
       </div>
       {clickBurger && (
         <div className="flex flex-col">
-          <hr className="pb-4 text-sfondo" />
+          <hr className="pb-4 text-testo" />
           <div className="flex flex-col items-end ">
-            <ul className=" text-white text-right">
+            <ul className=" text-testo text-right">
               <li className="py-0.5">DASHBOARD</li>
               <li className="py-0.5">CLIENTI</li>
               <li className="py-0.5">CALENDARIO</li>
