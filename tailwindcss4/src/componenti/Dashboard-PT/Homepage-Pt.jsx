@@ -17,11 +17,10 @@ export default function HomepagePt() {
           <SidebarPt />
         </div>
 
-        <div className="[grid-area:content] ml-[60px] lg:ml-[80px]">
+        <div className="md:[grid-area:content] md:ml-[60px] lg:ml-[80px]">
           <HeaderPt />
         </div>
-
-        <div className="[grid-area:content] pt-[100px]  ml-[60px] lg:ml-[80px] md:pt-0">
+        <div className="md:[grid-area:content] pt-[70px] md:pt-0 md:ml-[60px] lg:ml-[80px]">
           <MainPt />
         </div>
       </div>
