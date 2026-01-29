@@ -1,6 +1,7 @@
 import { NavbarPt } from "./navbar-Pt";
 import { HeaderPt } from "./header-Pt";
 import { SidebarPt } from "./sidebar-Pt";
+import { MainPt } from "./main-Pt";
 
 export default function HomepagePt() {
   return (
@@ -16,9 +17,13 @@ export default function HomepagePt() {
           <SidebarPt />
         </div>
 
-        <main className="md:[grid-area:content] md:ml-[60px] lg:ml-[80px]">
+        <div className="[grid-area:content] ml-[60px] lg:ml-[80px]">
           <HeaderPt />
-        </main>
+        </div>
+
+        <div className="[grid-area:content] pt-[100px]  ml-[60px] lg:ml-[80px] md:pt-0">
+          <MainPt />
+        </div>
       </div>
     </div>
   );
