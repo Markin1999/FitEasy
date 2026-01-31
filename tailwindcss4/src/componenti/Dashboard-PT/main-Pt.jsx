@@ -1,10 +1,10 @@
-import { ContainerPrincipale } from "./mainContainer/container-principale";
+import ContainerPrincipale from "./mainContainer/container-principale";
 import { ContainerImpegni } from "./mainContainer/container-impegni";
 import { BottomBarPt } from "./bottom-mobile";
 
 export function MainPt() {
   return (
-    <main className="w-full px-4 py-8 md:py-24 md:pr-[70px]">
+    <main className="w-full px-4 py-2 md:py-30 md:pr-[70px]">
       <div className="max-w-6xl mx-auto md:grid md:grid-cols-2 md:gap-6">
         <div className="col-span-1 mb-4 md:mb-0">
           <ContainerPrincipale />

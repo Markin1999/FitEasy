@@ -66,13 +66,13 @@ export function NavbarPt() {
                   }}
                 >
                   <button
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full flex justify-end px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors"
                   >
-                    <Icon className="w-5 h-5 text-gray-500" />
-                    {link.label}
+                    <span className="flex items-center gap-3 w-33">
+                      <Icon className="w-5 h-5 text-gray-500" />
+                      {link.label}
+                    </span>
                   </button>
                 </li>
               );
