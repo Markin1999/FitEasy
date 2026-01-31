@@ -1,29 +1,51 @@
+import { Home, Users, Calendar, Bell, Sparkles, User } from "lucide-react";
+import { useState } from "react";
+
 export function SidebarPt() {
+  const [hoveredItem, setHoveredItem] = useState(null);
+
+  const menuItems = [
+    { id: "dashboard", label: "DASHBOARD", icon: Home },
+    { id: "clienti", label: "CLIENTI", icon: Users },
+    { id: "calendario", label: "CALENDARIO", icon: Calendar },
+    { id: "notifiche", label: "NOTIFICHE", icon: Bell },
+    { id: "personalizzate", label: "PERSONALIZZATE", icon: Sparkles },
+    { id: "profilo", label: "PROFILO", icon: User },
+  ];
+
   return (
-    <aside className="fixed inset-y-0 left-0 w-[180px] bg-white py-8 pl-4 pr-4 border-r border-gray-200">
+    <aside className="fixed inset-y-0 left-0 w-[70px] hover:w-[200px] py-8 px-3 transition-all duration-300 ease-in-out group">
       <div className="flex h-full flex-col">
-        <div className="mb-4 flex h-16 items-center sm:justify-center md:mr-0 md:justify-end">
+        <div className="mb-4 flex h-16 items-center justify-center overflow-hidden">
           <img
             src="../../src/assets/logo/logo.png"
             alt="Fit-Easy logo"
-            className="m-1 block h-[60px] w-[80px] p-0 md:m-3 md:h-[90px] md:w-auto lg:h-[90px] lg:w-auto"
+            className="h-[50px] w-[50px] object-contain transition-all duration-300 group-hover:h-[60px] group-hover:w-[80px]"
           />
         </div>
 
         <nav className="mt-6 flex-1">
           <ul className="flex flex-col gap-4 text-testo font-semibold">
-            <li className="li-pt">DASHBOARD</li>
-            <li className="li-pt">CLIENTI</li>
-            <li className="li-pt">CALENDARIO</li>
-            <li className="li-pt">NOTIFICHE</li>
-            <li className="li-pt">PERSONALIZZATE</li>
-            <li className="li-pt">PROFILO</li>
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <li
+                  key={item.id}
+                  className="li-pt flex items-center cursor-pointer hover:text-blue-600 transition-colors overflow-hidden whitespace-nowrap"
+                  onMouseEnter={() => setHoveredItem(item.id)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  <div className=" flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-2">
+                    {item.label}
+                  </span>
+                </li>
+              );
+            })}
           </ul>
         </nav>
-
-        <div className="mt-auto flex h-16 items-center justify-center">
-          {/* Extra actions (logout, settings, etc.) */}
-        </div>
       </div>
     </aside>
   );
