@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export function HeaderPt() {
   return (
     <header className="hidden w-full pt-[79px] sm:flex sm:pt-0">
-      <div className="w-full flex flex-col bg-white border-black gap-5 sm:gap-7 sm:pb-22 sm:pt-3 sm:pr-4 lg:gap-10 lg:pb-24 lg:pt-4 lg:pr-8">
+      <div className="w-full flex flex-col border-black gap-5 sm:gap-7 sm:pb-22 sm:pt-3 sm:pr-4 lg:gap-10 lg:pb-24 lg:pt-4 lg:pr-8">
         <div className="flex justify-end">
           <div
             className="flex items-center 

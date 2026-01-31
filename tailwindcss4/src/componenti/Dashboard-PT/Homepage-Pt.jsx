@@ -6,10 +6,10 @@ import { MainPt } from "./main-Pt";
 export default function HomepagePt() {
   return (
     <div
-      className="md:min-h-screen md:w-full md:bg-sfondo"
+      className="md:min-h-screen md:w-full bg-sfondo"
       style={{ "--nav-height": "110px" }}
     >
-      <div className="md:grid md:min-h-screen md:grid-cols-[90px_minmax(0,1fr)] md:[grid-template-areas:'sidebar_content']">
+      <div className=" md:grid md:min-h-screen md:grid-cols-[90px_minmax(0,1fr)] md:[grid-template-areas:'sidebar_content']">
         <div className="md:hidden">
           <NavbarPt />
         </div>
@@ -17,10 +17,10 @@ export default function HomepagePt() {
           <SidebarPt />
         </div>
 
-        <div className="md:[grid-area:content] md:ml-[60px] lg:ml-[80px]">
+        <div className="md:[grid-area:content] ">
           <HeaderPt />
         </div>
-        <div className="md:[grid-area:content] pt-[70px] md:pt-0 md:ml-[60px] lg:ml-[80px]">
+        <div className="md:[grid-area:content] w-full pt-[70px] md:pt-0 ">
           <MainPt />
         </div>
       </div>

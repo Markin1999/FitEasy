@@ -14,6 +14,10 @@ body {
   background-color: #f8fafc;
 }
 
+.bg-sfondo {
+  background-color: #f8fafc;
+}
+
 button {
   cursor: pointer;
   transition: border-color 0.25s;

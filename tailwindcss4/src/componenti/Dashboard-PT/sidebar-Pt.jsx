@@ -14,7 +14,7 @@ export function SidebarPt() {
   ];
 
   return (
-    <aside className="fixed inset-y-0 left-0 w-[70px] hover:w-[200px] py-8 px-3 transition-all duration-300 ease-in-out group">
+    <aside className="fixed z-10 bg-sfondo inset-y-0 left-0 w-[70px] hover:w-[200px] py-8 px-3 transition-all duration-300 ease-in-out group">
       <div className="flex h-full flex-col">
         <div className="mb-4 flex h-16 items-center justify-center overflow-hidden">
           <img
