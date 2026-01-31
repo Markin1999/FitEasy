@@ -1,72 +1,103 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Home,
+  Users,
+  Calendar,
+  Bell,
+  User as UserIcon,
+} from "lucide-react";
 
 export function NavbarPt() {
-  const [clickBurger, setClickBurger] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const navTo = useNavigate();
+  const nomeAzienda = "FitEasy";
+
   const navLinks = [
-    { id: "dashboard", label: "Dashboard" },
-    { id: "clienti", label: "Clienti" },
-    { id: "calendario", label: "Calendario" },
-    { id: "notifiche", label: "Notifiche" },
-    { id: "profilo", label: "Profilo" },
+    { id: "dashboard", label: "Dashboard", icon: Home },
+    { id: "clienti", label: "Clienti", icon: Users },
+    { id: "calendario", label: "Calendario", icon: Calendar },
+    { id: "notifiche", label: "Notifiche", icon: Bell },
+    { id: "profilo", label: "Profilo", icon: UserIcon },
   ];
 
-  const handleClickBurger = () => {
-    setClickBurger(!clickBurger);
-  };
-
   return (
-    <nav className="bg-white gap-2 px-5 py-2  fixed w-full sm:px-12 md:py-0 lg:py-3 ">
-      <div className="flex">
-        <div className="w-full justify-center items-center gap-4 md:grid md:grid-cols-3  ">
-          <div className="h-full ">
-            <img
-              src="../../src/assets/logo/logo.png"
-              alt="Fit-Easy logo"
-              className="block h-[60px] w-[80px] m-1 p-0 md:h-[90px] md:w-auto md:m-3 lg:h-[90px] lg:w-auto"
-            />
-          </div>
+    <nav className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50">
+      <div className="flex items-center justify-between h-16 px-4">
+        {/* Spazio vuoto per bilanciare */}
+        <div className="w-10"></div>
+
+        {/* Nome azienda centrato */}
+        <div className="absolute left-1/2 -translate-x-1/2">
+          <h1 className="text-base font-semibold text-gray-900 tracking-tight">
+            {nomeAzienda}
+          </h1>
         </div>
-        <div
-          className=" flex justify-center items-center hover:cursor-pointer sm:hidden"
-          onClick={handleClickBurger}
+
+        {/* Hamburger menu a destra */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          aria-label="Menu"
         >
-          <svg
-            className="w-6 h-6 text-titolo"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </div>
+          {isOpen ? (
+            <X className="w-6 h-6 text-gray-700" />
+          ) : (
+            <Menu className="w-6 h-6 text-gray-700" />
+          )}
+        </button>
       </div>
-      {clickBurger && (
-        <div className="flex flex-col">
-          <hr className="pb-4 text-testo" />
-          <div className="flex flex-col items-end ">
-            <ul className="text-testo text-left space-y-2 w-fit">
-              {navLinks.map((link) => (
+
+      {/* Menu dropdown animato */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-gray-200 bg-white">
+          <ul className="py-2">
+            {navLinks.map((link, index) => {
+              const Icon = link.icon;
+              return (
                 <li
                   key={link.id}
-                  className="li-pt-navbar"
-                  role="button"
-                  tabIndex={0}
+                  style={{
+                    animation: isOpen
+                      ? `slideDown 0.3s ease-out ${index * 0.05}s both`
+                      : "none",
+                  }}
                 >
-                  <span className="li-pt-navbar__label">{link.label}</span>
+                  <button
+                    onClick={() => {
+                      setIsOpen(false);
+                      // navTo logic here
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors"
+                  >
+                    <Icon className="w-5 h-5 text-gray-500" />
+                    {link.label}
+                  </button>
                 </li>
-              ))}
-            </ul>
-          </div>
+              );
+            })}
+          </ul>
         </div>
-      )}
+      </div>
+
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </nav>
   );
 }

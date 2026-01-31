@@ -1,92 +1,71 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Bell, Settings, User, Calendar, Building2 } from "lucide-react";
 
 export function HeaderPt() {
+  const notifiche = 32;
+  const scadenze = 6;
+  const clienti = 32;
+
   return (
-    <header className="hidden w-full pt-[79px] sm:flex sm:pt-0">
-      <div className="w-full flex flex-col border-black gap-5 sm:gap-7 sm:pb-22 sm:pt-3 sm:pr-4 lg:gap-10 lg:pb-24 lg:pt-4 lg:pr-8">
-        <div className="flex justify-end">
-          <div
-            className="flex items-center 
-           text-testo gap-4"
-          >
-            <div
+    <header className="hidden sm:block fixed top-0 right-0 left-[70px]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-24">
+          {/* Logo aziendale al centro */}
+          <div className="flex items-center gap-4 flex-1">
+            <div className="flex flex-col">
+              <h1 className="text-base font-semibold text-gray-900 tracking-tight">
+                FitEasy
+              </h1>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <User className="h-3.5 w-3.5 text-gray-400" />
+                <span className="text-sm text-gray-600">
+                  <span className="font-semibold text-gray-900">{clienti}</span>{" "}
+                  clienti
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions a destra */}
+          <div className="flex items-center gap-3">
+            <button
+              aria-label="In scadenza"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-testo font-medium text-sm group relative"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors relative">
+                <Calendar className="h-4 w-4" />
+                {scadenze > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {scadenze}
+                  </span>
+                )}
+              </span>
+              <span className="hidden lg:inline">Scadenze</span>
+            </button>
+
+            <button
               aria-label="Notifiche"
-              className="container-notifiche-header-pt"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-testo font-medium text-sm group relative"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="h-4 w-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 19a2 2 0 0 0 1.985-1.75L14 17H10a2 2 0 0 0 1.85 1.994L12 19Zm7-5h-1V11a6 6 0 0 0-5-5.917V4a1 1 0 0 0-2 0v1.083A6 6 0 0 0 6 11v3H5a1 1 0 0 0-.117 1.993L5 16h14a1 1 0 0 0 .117-1.993L19 14Z"
-                  />
-                </svg>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors relative">
+                <Bell className="h-4 w-4" />
+                {notifiche > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {notifiche}
+                  </span>
+                )}
               </span>
-              Notifiche
-            </div>
+              <span className="hidden lg:inline">Notifiche</span>
+            </button>
 
-            <div
+            <button
               aria-label="Impostazioni"
-              className="container-notifiche-header-pt"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-testo font-medium text-sm group"
             >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="h-4 w-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.4 15a1 1 0 0 1 .2 1.09l-1 1.73a1 1 0 0 1-1.08.46l-1.8-.36a7 7 0 0 1-1.65.96l-.27 1.82a1 1 0 0 1-.99.85h-2a1 1 0 0 1-.99-.85l-.27-1.82a7 7 0 0 1-1.65-.96l-1.8.36a1 1 0 0 1-1.08-.46l-1-1.73a1 1 0 0 1 .2-1.09l1.54-1.34a7 7 0 0 1 0-1.93L4.6 8.99a1 1 0 0 1-.2-1.09l1-1.73a1 1 0 0 1 1.08-.46l1.8.36a7 7 0 0 1 1.65-.96L10.2 3.3a1 1 0 0 1 .99-.85h2a1 1 0 0 1 .99.85l.27 1.82a7 7 0 0 1 1.65.96l1.8-.36a1 1 0 0 1 1.08.46l1 1.73a1 1 0 0 1-.2 1.09l-1.54 1.34c.08.63.08 1.3 0 1.93L19.4 15Z"
-                  />
-                </svg>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 group-hover:bg-gray-200 transition-colors">
+                <Settings className="h-4 w-4" />
               </span>
-              Impostazioni
-            </div>
-
-            <div
-              aria-label="Profilo utente"
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-400 text-white text-xs font-bold transition"
-            >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-grey/20">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="h-4 w-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 19a6 6 0 0 1 12 0"
-                  />
-                </svg>
-              </span>
-            </div>
+              <span className="hidden lg:inline">Impostazioni</span>
+            </button>
           </div>
         </div>
       </div>
