@@ -26,17 +26,14 @@ export function NavbarPt() {
   return (
     <nav className="md:hidden fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50">
       <div className="flex items-center justify-between h-16 px-4">
-        {/* Spazio vuoto per bilanciare */}
         <div className="w-10"></div>
 
-        {/* Nome azienda centrato */}
         <div className="absolute left-1/2 -translate-x-1/2">
           <h1 className="text-base font-semibold text-gray-900 tracking-tight">
             {nomeAzienda}
           </h1>
         </div>
 
-        {/* Hamburger menu a destra */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
@@ -50,7 +47,6 @@ export function NavbarPt() {
         </button>
       </div>
 
-      {/* Menu dropdown animato */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -72,7 +68,6 @@ export function NavbarPt() {
                   <button
                     onClick={() => {
                       setIsOpen(false);
-                      // navTo logic here
                     }}
                     className="w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors"
                   >
