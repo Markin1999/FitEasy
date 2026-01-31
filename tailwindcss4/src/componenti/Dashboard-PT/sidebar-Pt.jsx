@@ -1,6 +1,6 @@
 export function SidebarPt() {
   return (
-    <aside className="fixed inset-y-0 left-0 [w-90px] bg-white py-8 pl-4 pr-4 border-r border-gray-200">
+    <aside className="fixed inset-y-0 left-0 w-[180px] bg-white py-8 pl-4 pr-4 border-r border-gray-200">
       <div className="flex h-full flex-col">
         <div className="mb-4 flex h-16 items-center sm:justify-center md:mr-0 md:justify-end">
           <img

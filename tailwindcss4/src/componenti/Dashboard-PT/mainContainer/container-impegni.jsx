@@ -163,7 +163,7 @@ export function ContainerImpegni() {
   return (
     <div
       id="container-impegni-dashboard-pt"
-      className="w-full h-[270px] bg-white rounded-lg shadow-md border border-slate-200 p-6 overflow-hidden flex flex-col"
+      className="w-full h-[270px] bg-white rounded-lg shadow-md border border-slate-200 p-6 overflow-hidden flex flex-col md:h-[540px]"
     >
       {/* Header con navigazione */}
       <div className="flex items-center justify-between mb-2">
